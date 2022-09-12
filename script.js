@@ -1,3 +1,6 @@
+let playerScore = 0;
+let computerScore = 0;
+
 function getComputerChoice(){
     const arr = ['rock', 'paper', 'scissors'];
     const roll = Math.floor(Math.random()*3);
@@ -19,8 +22,10 @@ function playRound(playerSelection, computerSelection){
     if(playerSelection == 'rock'){
         if(computerSelection == 'paper'){
             return 'Computer Wins!';
+            computerScore++;
         }else if(computerSelection == 'scissors'){
             return 'Player Wins!';
+            playererScore++;
         }else if(computerSelection == 'scissors'){
             return 'Its a draw!';
         }         
@@ -29,8 +34,10 @@ function playRound(playerSelection, computerSelection){
     if(playerSelection == 'paper'){
         if(computerSelection == 'rock'){
             return 'Player Wins!';
+            playererScore++;
         }else if(computerSelection == 'scissors'){
             return 'Computer Wins!';
+            computerScore++;
         }else if(computerSelection == 'paper'){
             return 'Its a draw!';
         }         
@@ -39,16 +46,30 @@ function playRound(playerSelection, computerSelection){
     if(playerSelection == 'scissors'){
         if(computerSelection == 'paper'){
             return 'Player Wins!';
+            playererScore++;
         }else if(computerSelection == 'rock'){
             return 'Computer Wins!';
+            computerScore++;
         }else if(computerSelection == 'scissors'){
             return 'Its a draw!';
         }         
     }
 }
 
+
+
 function game(){
-    console.log(playRound(getPlayerChoice(), getComputerChoice()));
+    for(let i=0;i<5;i++){
+        console.log(playRound(getPlayerChoice(), getComputerChoice()));
+    }
+
+    if(playerScore > computerScore) {
+        console.log(`Player has won. Player ${playerScore} - ${computerScore} Computer`);
+        console.log('Congratulations Player.');
+    } else {
+        console.log(`Computer has won. Player ${playerScore} - ${computerScore} Computer`);
+        console.log('Congratulations Computerer.');
+    }
 }
 
 game();

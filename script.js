@@ -1,12 +1,14 @@
 function getComputerChoice(){
     const arr = ['rock', 'paper', 'scissors'];
     const roll = Math.floor(Math.random()*3);
+    console.log(`Computer rolls ${arr[roll]}`);
     return arr[roll];
 }
 
 function getPlayerChoice(){
     const choice = prompt('Rock, Paper or Scissors?')
     if(choice == 'rock' || choice =='paper' || choice =='scissors'){
+        console.log(`Player rolls ${choice}`);
         return choice;
     } else {
         getPlayerChoice()
@@ -29,7 +31,7 @@ function playRound(playerSelection, computerSelection){
             return 'Player Wins!';
         }else if(computerSelection == 'scissors'){
             return 'Computer Wins!';
-        }else if(computerSelection == 'scissors'){
+        }else if(computerSelection == 'paper'){
             return 'Its a draw!';
         }         
     }

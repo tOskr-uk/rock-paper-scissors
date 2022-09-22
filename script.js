@@ -72,8 +72,43 @@ function game(){
     }
 }
 
-game();
+
+// TEMP
+const body = document.querySelector('main');
+// ---------------------------------------------------
+
+
+body.addEventListener('click', animateScoreIncrement)
+
+
+
+
+
+
+
+// game();
 
 
 // console.log(getPlayerChoice());
 // console.log(getComputerChoice());
+
+
+function animateScoreIncrement(){
+    const scoreComp = document.querySelector('.computer .score');
+    const scoreCompDisplay = document.querySelector('.computer .score div');
+    const scoreHuman = document.querySelector('.human .score');
+    
+
+    // create and append new score element
+    const div = document.createElement('div');
+    computerScore++
+    div.textContent = computerScore;
+    div.classList.add('animiateIncrementScore');
+    scoreComp.appendChild(div);
+    scoreCompDisplay.classList.add('animiateIncrementScore');
+    // remove first element
+    setTimeout(() => {
+        scoreComp.children[1].classList.remove('animiateIncrementScore')
+        scoreComp.removeChild(scoreComp.children[0]);
+    }, 1500);
+}

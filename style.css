@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
+*,
+*::before,
+*:after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+    /* font-family: Arial, Helvetica, sans-serif; */
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 2px;
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* SECTION TOTALS */
+.totals {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+
+    margin: 2em 0;
+}
+
+.totals > span {
+    font-size: 4rem;
+    margin: 0 .5em;
+}
+
+.totals .computer, 
+.totals .human {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.computer h2{
+    margin-right: 0.5em;
+}
+
+.human h2{
+    margin-left: 0.5em;
+}
+
+.totals .score {
+    border: 1px solid black;
+    border-radius: .2em;
+    width: 1.5em;
+    height: 1.5em;
+    overflow: hidden;
+}
+
+.totals .score div {
+    width: 1.5em;
+    height: 1.5em;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.animiateIncrementScore {
+    position: relative;
+    animation: increment 1s ease-in-out 0.5s 1 normal forwards;
+    /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+}
+
+
+@keyframes increment {
+    /* animate the score changes */
+    0%{ top: 0; }
+    25%{ top: 10px; }
+    75%{ top: calc(-1.5em - 10px); }
+    100%{ top: -1.5em; }
+}

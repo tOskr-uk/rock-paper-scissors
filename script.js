@@ -1,3 +1,5 @@
+'use strict'
+
 let playerScore = 0;
 let computerScore = 0;
 
@@ -78,7 +80,10 @@ const body = document.querySelector('main');
 // ---------------------------------------------------
 
 
-body.addEventListener('click', animateScoreIncrement)
+body.addEventListener('click', ()=>{
+    const arr = ['computer', 'player']
+    animateScoreIncrement(arr[Math.floor(Math.random()*2)])
+})
 
 
 
@@ -93,22 +98,32 @@ body.addEventListener('click', animateScoreIncrement)
 // console.log(getComputerChoice());
 
 
-function animateScoreIncrement(){
-    const scoreComp = document.querySelector('.computer .score');
-    const scoreCompDisplay = document.querySelector('.computer .score div');
-    const scoreHuman = document.querySelector('.human .score');
-    
+function animateScoreIncrement(victor){
+    const element = document.querySelector(`.${victor} .score`);
+    const animationClass = 'animiate_incremental-score';
 
-    // create and append new score element
+    // increment score
+    let score;
+    if(victor == 'player'){
+        playerScore++
+        score = playerScore
+    } else {
+        computerScore++
+        score = computerScore
+    }
+
+    // add animation class to existing counter
+    element.children[0].classList.add(animationClass);
+
+    // create and append new score element with animation class
     const div = document.createElement('div');
-    computerScore++
-    div.textContent = computerScore;
-    div.classList.add('animiateIncrementScore');
-    scoreComp.appendChild(div);
-    scoreCompDisplay.classList.add('animiateIncrementScore');
-    // remove first element
+    div.textContent = score;
+    div.classList.add(animationClass);
+    element.appendChild(div);
+
+    // reset the counter elements (remove first element)
     setTimeout(() => {
-        scoreComp.children[1].classList.remove('animiateIncrementScore')
-        scoreComp.removeChild(scoreComp.children[0]);
+        element.children[1].classList.remove(animationClass)
+        element.removeChild(element.children[0]);
     }, 1500);
 }

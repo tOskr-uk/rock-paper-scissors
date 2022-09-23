@@ -74,23 +74,6 @@ function game(){
     }
 }
 
-
-// TEMP
-const body = document.querySelector('main');
-// ---------------------------------------------------
-
-
-body.addEventListener('click', ()=>{
-    const arr = ['computer', 'player']
-    animateScoreIncrement(arr[Math.floor(Math.random()*2)])
-})
-
-
-
-
-
-
-
 // game();
 
 
@@ -98,10 +81,41 @@ body.addEventListener('click', ()=>{
 // console.log(getComputerChoice());
 
 
+
+
+// TEMP
+const body = document.querySelector('main');
+// ---------------------------------------------------
+
+
+// EVENT LISTENERS
+// ----------------
+body.addEventListener('click', ()=>{
+    const arr = ['computer', 'player']
+    animateScoreIncrement(arr[Math.floor(Math.random()*2)])
+    animateRoll();
+})
+
+
+function animateRoll(){
+    const computerRoll = document.querySelector('.battle .computer');
+    const playerRoll = document.querySelector('.battle .player');
+
+    computerRoll.classList.add('animate_shake--left');
+    playerRoll.classList.add('animate_shake--right');
+    setTimeout(()=>{
+        
+    }, 1000)
+    setTimeout(() => {
+        computerRoll.classList.remove('animate_shake--left');
+        playerRoll.classList.remove('animate_shake--right');
+    }, 2500);
+}
+
 function animateScoreIncrement(victor){
     const element = document.querySelector(`.${victor} .score`);
     const animationClass = 'animiate_incremental-score';
-
+    
     // increment score
     let score;
     if(victor == 'player'){

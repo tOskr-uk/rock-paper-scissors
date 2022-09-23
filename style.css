@@ -14,7 +14,6 @@ html {
 
 body {
     font-size: 1.6rem;
-    /* font-family: Arial, Helvetica, sans-serif; */
     font-family: 'Orbitron', sans-serif;
     letter-spacing: 2px;
 }
@@ -62,7 +61,6 @@ main {
 
 .player h2{
     margin-left: 0.5em;
-    /* width: ; */
 }
 
 .totals .score {
@@ -93,6 +91,30 @@ main {
     align-items: center;
     justify-content: center;
 }
+
+.battle div{
+    padding: 0 2em;
+    border: 1px solid black;
+    height: 20em;
+    width: 20em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.battle div img{
+    object-fit: contain;
+    height: 100%;
+}
+
+.battle .computer img {
+    transform: scaleX(-1) rotateZ(-90deg);
+}
+
+.battle .player img {
+    transform: rotateZ(-90deg);
+}
+
 
 
 /* ANIMATIONS */

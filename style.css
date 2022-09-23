@@ -16,11 +16,13 @@ body {
     font-size: 1.6rem;
     font-family: 'Orbitron', sans-serif;
     letter-spacing: 2px;
+    /* height: 100vh; */
 }
 
 main {
     max-width: 1200px;
     margin: 0 auto;
+    height: 100%;
 }
 
 
@@ -97,6 +99,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 0 2em;
 }
 
 .battle div img{
@@ -114,10 +117,23 @@ main {
 
 
 
+
+/* COMMENTARY SECTION */
+.commentary{
+    font-size: 3rem;
+    color: #444;
+    height: 6rem;
+    text-align: center;
+    margin-top: 2em;
+}
+
+
+
+
 /* SELECTION SECTION */
 .selection{
     text-align: center;
-    margin: 1em;
+    margin: 3em 0 5em 0;
 }
 
 .selection .rps{
@@ -168,14 +184,6 @@ main {
     100%{ top: -1.5em; }
 }
 
-/* @keyframes tremble {
-    0%{transform: translate(1em, 1em);}
-    25%{transform: translate(-1em, 1em);}
-    50%{transform: translate(-1em, -1em);}
-    75%{transform: translate(1em, -1em);}
-    100%{transform: translate(1em, 1em);}
-} */
-
 @keyframes shake-right {
     0%{transform: scale(1) rotateZ(0);}
     10%{transform: scale(1.1) rotateZ(10deg);}
@@ -200,11 +208,17 @@ main {
     100%{transform: scale(1) rotateZ(0);}
 }
 
+@keyframes reset {
+    0%{transform: scale(1);}
+    50%{transform: scale(0);}
+    100%{transform: scale(1);}
+}
+
 
 /* ANIMATION CLASSES */
 .animiate_incremental-score {
     position: relative;
-    animation: increment 1s ease-in-out 0.5s 1 normal forwards;
+    animation: increment 1s ease-in-out 1 normal forwards;
 }
 
 .animate_shake--left{
@@ -214,7 +228,12 @@ main {
 
 .animate_shake--right{
     position: relative;
-    animation: shake-right 2s ease-in-out 0.5s 1 normal forwards;
+    animation: shake-right 1.98s ease-in-out 0.55s 1 normal forwards;
+}
+
+.animate_reset{
+    position: relative;
+    animation: reset 0.5s ease-in-out 1 normal forwards;
 }
 
 

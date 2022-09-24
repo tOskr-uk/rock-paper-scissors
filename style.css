@@ -95,17 +95,14 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 4em;
 }
 
 .battle div{
-    /* padding: 0 2em; */
-    /* border: 1px solid black; */
     height: 20em;
     width: 50%;
     display: flex;
     align-items: center;
-    /* justify-content: center; */
-    /* margin: 0 2em; */
 }
 
 .battle .computer {
@@ -187,6 +184,7 @@ main {
 
 .selection .rps > div:hover h3{
     opacity: 1;
+    transform: translateY(1.5em);
     font-size: 2rem;
 }
 
@@ -325,12 +323,18 @@ main {
     html{
         font-size: 55%;
     }
+
+    .battle div img{
+        height: 90%;
+    }
 }
 
 @media only screen and (max-width: 767px){
     html{
         font-size: 45%;
     }
+
+    
 }
 
 @media only screen and (max-width: 600px){

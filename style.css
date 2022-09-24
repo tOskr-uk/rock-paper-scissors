@@ -95,12 +95,10 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 4em;
 }
 
 .battle div{
     height: 20em;
-    width: 50%;
     display: flex;
     align-items: center;
 }
@@ -111,11 +109,14 @@ main {
 
 .battle .player {
     justify-content: flex-start;
+
 }
 
 .battle div img{
     object-fit: contain;
     height: 100%;
+    width: 100%;
+    
 }
 
 .battle .computer img {

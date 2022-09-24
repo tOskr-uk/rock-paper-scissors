@@ -229,9 +229,9 @@ function updateCommentary(victor){
     if(victor == 'draw'){
         message = "It's a draw. Play again."
     } else if(victor == 'player') {
-        message = 'Rock beats Scissors \n Player wins. Well done!'
+        message = `${playerRoll} beats ${computerRoll} \n Player wins. Well done!`;
     } else {
-        message = 'Rock beats Scissors \n Computer wins.'
+        message = `${computerRoll} beats ${playerRoll} \n Computer wins.`;
     }
 
     // create and display commentary element

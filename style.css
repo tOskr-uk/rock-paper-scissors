@@ -178,6 +178,9 @@ main {
     font-size: 2rem;
 }
 
+.selection .rps > div:active {
+    transform: scale(1);
+}
 
 .selection .rps img {
     object-fit: contain;

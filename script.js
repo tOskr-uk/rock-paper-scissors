@@ -5,7 +5,11 @@ let computerScore = 0;
 let playerRoll;
 let computerRoll;
 let wait = false;
+const scoreMax = 1;
 
+
+
+overlay('start');
 
 
 // EVENT LISTENERS
@@ -18,24 +22,58 @@ document.querySelector('.rps').addEventListener('click', e =>{
     setPlayerRoll(str);
     setComputerRoll();
     animateRPS();
-
-    play();
+    
 });
 
+// controls the overlay element at load and end game
+function overlay(status){
+    const body = document.querySelector('body');
 
-
-
-
-// FUNCTIONS
-// ---------
-
-// play (main function)
-function play(){    
-     
+    // create and populate the elements
+    const overlay = document.createElement('div');
+    overlay.classList.add('overlay','overlay--visible');
     
-    // console.log(`./images/${computerRoll}.png`);
-
+    const h1 = document.createElement('h1');
+    const h2 = document.createElement('h2');
+    const btn = document.createElement('a');
     
+    if(status == 'win'){
+        h1.innerText = 'You won!'
+        h2.innerText = 'You beat the computer. Well done.'
+        btn.innerText = 'Play Again'
+    } else if(status == 'lose'){
+        h1.innerText = 'You lost!'
+        h2.innerText = 'The computer won. Better luck next time.'
+        btn.innerText = 'Play again'
+    } else if(status == 'start'){
+        h1.innerText = 'Welcome!'
+        h2.innerText = 'Can you beat the computer at a game of Rock, Paper, Scissors?'
+        btn.innerText = 'Start'
+    }
+    
+    overlay.appendChild(h1);
+    overlay.appendChild(h2);
+    overlay.appendChild(btn);
+    body.appendChild(overlay);    
+    
+    document.querySelector('.overlay a').addEventListener('click', ()=>{
+        const body = document.querySelector('body');
+        if(status == 'win' || status == 'lose'){
+            resetScores();
+        }
+        body.removeChild(body.lastElementChild);
+    })
+}
+
+function monitorScore(){
+    let leading;
+    if(playerScore > computerScore){
+        leading = 'player';
+        playerScore>=scoreMax?overlay('win'):false;
+    } else if(computerScore > playerScore) {
+        leading = 'computer';
+        computerScore>=scoreMax?overlay('lose'):false;
+    }
 }
 
 // animates the computer v player battle section
@@ -56,6 +94,7 @@ function animateRPS(){
             roundWinner = playRound(playerRoll, computerRoll);
             animateScoreIncrement(roundWinner);
             updateCommentary(roundWinner);
+            
             setTimeout(() => {
                 rollComp.classList.add('animate_reset');
                 rollPlayer.classList.add('animate_reset');
@@ -104,7 +143,36 @@ function animateScoreIncrement(victor){
     setTimeout(() => {
         element.children[1].classList.remove(animationClass)
         element.removeChild(element.children[0]);
+        monitorScore();
     }, 1500);
+}
+
+function resetScores(){
+    const arr = ['player', 'computer'];
+    arr.forEach(e => {
+        
+        const element = document.querySelector(`.${e} .score`);
+        const animationClass = 'animiate_incremental-score';
+        
+        // add animation class to current counter element
+        element.children[0].classList.add(animationClass);
+        
+        // create and append new score element with animation class
+        const div = document.createElement('div');
+        div.textContent = 0;
+        div.classList.add(animationClass);
+        element.appendChild(div);
+        
+        // remove first element (reset the counter elements)
+        setTimeout(() => {
+            element.children[1].classList.remove(animationClass)
+            element.removeChild(element.children[0]);
+            monitorScore();
+        }, 1500);
+    });
+
+    playerScore = 0;
+    computerScore = 0;
 }
 
 // sets computerRoll variable
@@ -161,9 +229,9 @@ function updateCommentary(victor){
     if(victor == 'draw'){
         message = "It's a draw. Play again."
     } else if(victor == 'player') {
-        message = 'Player wins. Well done!'
+        message = 'Rock beats Scissors \n Player wins. Well done!'
     } else {
-        message = 'Computer wins.'
+        message = 'Rock beats Scissors \n Computer wins.'
     }
 
     // create and display commentary element

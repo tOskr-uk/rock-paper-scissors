@@ -5,7 +5,7 @@ let computerScore = 0;
 let playerRoll;
 let computerRoll;
 let wait = false;
-const scoreMax = 1;
+const scoreMax = 5;
 
 
 

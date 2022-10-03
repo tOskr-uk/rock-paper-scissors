@@ -256,9 +256,45 @@ main {
     25%{ top: 10px; }
     75%{ top: calc(-1 * var(--score-box-size) - 10px); }
     100%{ top: calc(-1 * var(--score-box-size)); }
+} 
+@-webkit-keyframes increment {
+    /* animate the score changes */
+    0%{ top: 0; }
+    25%{ top: 10px; }
+    75%{ top: calc(-1 * var(--score-box-size) - 10px); }
+    100%{ top: calc(-1 * var(--score-box-size)); }
+} 
+@-moz-keyframes increment {
+    /* animate the score changes */
+    0%{ top: 0; }
+    25%{ top: 10px; }
+    75%{ top: calc(-1 * var(--score-box-size) - 10px); }
+    100%{ top: calc(-1 * var(--score-box-size)); }
 }
 
 @keyframes shake-right {
+    0%{transform: scale(1) rotateZ(0);}
+    10%{transform: scale(1.1) rotateZ(10deg);}
+    20%{transform: scale(0.9) rotateZ(-10deg);}
+    30%{transform: scale(1.1) rotateZ(10deg);}
+    40%{transform: scale(0.9) rotateZ(-10deg);}
+    50%{transform: scale(1.1) rotateZ(10deg);}
+    70%{transform: scale(0) rotateZ(-10deg);}
+    80%{transform: scale(1.2);}
+    100%{transform: scale(1) rotateZ(0);}
+} 
+@-webkit-keyframes shake-right {
+    0%{transform: scale(1) rotateZ(0);}
+    10%{transform: scale(1.1) rotateZ(10deg);}
+    20%{transform: scale(0.9) rotateZ(-10deg);}
+    30%{transform: scale(1.1) rotateZ(10deg);}
+    40%{transform: scale(0.9) rotateZ(-10deg);}
+    50%{transform: scale(1.1) rotateZ(10deg);}
+    70%{transform: scale(0) rotateZ(-10deg);}
+    80%{transform: scale(1.2);}
+    100%{transform: scale(1) rotateZ(0);}
+} 
+@-moz-keyframes shake-right {
     0%{transform: scale(1) rotateZ(0);}
     10%{transform: scale(1.1) rotateZ(10deg);}
     20%{transform: scale(0.9) rotateZ(-10deg);}
@@ -280,9 +316,41 @@ main {
     70%{transform: scale(0) rotateZ(10deg);}
     80%{transform: scale(1.2);}
     100%{transform: scale(1) rotateZ(0);}
+} 
+@-webkit-keyframes shake-left {
+    0%{transform: scale(1) rotateZ(0);}
+    10%{transform: scale(1.1) rotateZ(-10deg);}
+    20%{transform: scale(0.9) rotateZ(10deg);}
+    30%{transform: scale(1.1) rotateZ(-10deg);}
+    40%{transform: scale(0.9) rotateZ(10deg);}
+    50%{transform: scale(1.1) rotateZ(-10deg);}
+    70%{transform: scale(0) rotateZ(10deg);}
+    80%{transform: scale(1.2);}
+    100%{transform: scale(1) rotateZ(0);}
+} 
+@-moz-keyframes shake-left {
+    0%{transform: scale(1) rotateZ(0);}
+    10%{transform: scale(1.1) rotateZ(-10deg);}
+    20%{transform: scale(0.9) rotateZ(10deg);}
+    30%{transform: scale(1.1) rotateZ(-10deg);}
+    40%{transform: scale(0.9) rotateZ(10deg);}
+    50%{transform: scale(1.1) rotateZ(-10deg);}
+    70%{transform: scale(0) rotateZ(10deg);}
+    80%{transform: scale(1.2);}
+    100%{transform: scale(1) rotateZ(0);}
 }
 
 @keyframes reset {
+    0%{transform: scale(1);}
+    50%{transform: scale(0);}
+    100%{transform: scale(1);}
+} 
+@-webkit-keyframes reset {
+    0%{transform: scale(1);}
+    50%{transform: scale(0);}
+    100%{transform: scale(1);}
+} 
+@-moz-keyframes reset {
     0%{transform: scale(1);}
     50%{transform: scale(0);}
     100%{transform: scale(1);}
@@ -293,21 +361,29 @@ main {
 .animiate_incremental-score {
     position: relative;
     animation: increment 1s ease-in-out 1 normal forwards;
+    -webkit-animation: increment 1s ease-in-out 1 normal forwards;
+    -moz-animation: increment 1s ease-in-out 1 normal forwards;
 }
 
 .animate_shake--left{
     position: relative;
     animation: shake-left 2s ease-in-out 0.5s 1 normal forwards;
+    -webkit-animation: shake-left 2s ease-in-out 0.5s 1 normal forwards;
+    -moz-animation: shake-left 2s ease-in-out 0.5s 1 normal forwards;
 }
 
 .animate_shake--right{
     position: relative;
     animation: shake-right 1.98s ease-in-out 0.55s 1 normal forwards;
+    -webkit-animation: shake-right 1.98s ease-in-out 0.55s 1 normal forwards;
+    -moz-animation: shake-right 1.98s ease-in-out 0.55s 1 normal forwards;
 }
 
 .animate_reset{
     position: relative;
     animation: reset 0.5s ease-in-out 1 normal forwards;
+    -webkit-animation: reset 0.5s ease-in-out 1 normal forwards;
+    -moz-animation: reset 0.5s ease-in-out 1 normal forwards;
 }
 
 
